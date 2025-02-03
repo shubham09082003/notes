@@ -31,8 +31,10 @@ function NotesList() {
       if (response.status !== 200) {
         throw new Error("Failed to fetch notes")
       }
+      console.log(response.data)
       const notesData = Array.isArray(response.data) ? response.data : [response.data]
       setNotes(notesData)
+      console.log(notesData)
     } catch (err) {
       console.error("Error fetching notes:", err)
     } finally {

@@ -12,7 +12,7 @@ interface AuthRequest extends express.Request {
 noteRouter.get('/', middleware, async (req: AuthRequest, res: Response) => {
     try {
         const userId = req.userId;
-        const notes = await Notes.findOne({author: userId});
+        const notes = await Notes.find({author: userId});
         res.status(200).json(notes);
     } catch(e) {
         res.status(500).json({message: "Internal server error"});

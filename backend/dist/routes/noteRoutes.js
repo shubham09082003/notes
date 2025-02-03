@@ -19,7 +19,7 @@ const noteRouter = express_1.default.Router();
 noteRouter.get('/', middleware_1.middleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const userId = req.userId;
-        const notes = yield notesDb_1.default.findOne({ author: userId });
+        const notes = yield notesDb_1.default.find({ author: userId });
         res.status(200).json(notes);
     }
     catch (e) {
